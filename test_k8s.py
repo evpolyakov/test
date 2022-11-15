@@ -20,7 +20,7 @@ dag = DAG(
 
 start = DummyOperator(task_id='start', dag=dag)
 
-passing = KubernetesPodOperator(namespace='dept-ai',
+passing = KubernetesPodOperator(namespace='dept-ml',
                           image="python:3.6",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
@@ -31,7 +31,7 @@ passing = KubernetesPodOperator(namespace='dept-ai',
                           dag=dag
                           )
 
-failing = KubernetesPodOperator(namespace='dept-ai',
+failing = KubernetesPodOperator(namespace='dept-ml',
                           image="ubuntu:16.04",
                           cmds=["python","-c"],
                           arguments=["print('hello world')"],
